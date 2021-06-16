@@ -34,22 +34,37 @@ def add_task():
         elif action == 'L':
             print(to_does)
         elif action == 'S':
-            a = input(
-                "Enter how you want the list sorted: 'D' by due date; 'T' by task, 'N' by name or 'C' by category").upper()
-            if a == 'D':
-                to_does = to_does.sort_values(by='Due_Date')
-            elif a == 'T':
-                to_does = to_does.sort_values(by='Task')
-            elif a == 'N':
-                to_does = to_does.sort_values(by='Name')
-            elif a == 'C':
-                to_does = to_does.sort_values(by='Category')
-        elif action == 'Q':
-            break
+            b = input(
+                "Enter how you want the list sorted:\n'A' for ascending\n'D' for Descending").upper()
+            if b == 'A':
+                a = input(
+                    "Enter how you want the list sorted:\n'D' by due date\n'T' by task\n'N' by name\n'C' by category").upper()
+                if a == 'D':
+                    to_does = to_does.sort_values(by='Due_Date')
+                elif a == 'T':
+                    to_does = to_does.sort_values(by='Task')
+                elif a == 'N':
+                    to_does = to_does.sort_values(by='Name')
+                elif a == 'C':
+                    to_does = to_does.sort_values(by='Category')
+            elif b == 'D':
+                a = input(
+                    "Enter how you want the list sorted:\n'D' by due date\n'T' by task\n'N' by name\n'C' by category").upper()
+                if a == 'D':
+                    to_does = to_does.sort_values(by='Due_Date',reverse = True)
+                elif a == 'T':
+                    to_does = to_does.sort_values(by='Task',reverse = True)
+                elif a == 'N':
+                    to_does = to_does.sort_values(by='Name',reverse = True)
+                elif a == 'C':
+                    to_does = to_does.sort_values(by='Category',reverse = True)
 
-    to_does.to_csv('to_does.csv', index=False)
-    to_does = pd.read_csv('to_does.csv')
-    print(to_does)
+            elif action == 'Q':
+                break
+
+        to_does.to_csv('to_does.csv', index=False)
+        to_does = pd.read_csv('to_does.csv')
+        print(to_does)
 
     return None
 
