@@ -54,18 +54,21 @@ if __name__ == '__main__':
             # displaying rights
             if user == 1:
                 print("Admin Full Rights:")
-                print(" add_name, remove_name, list_name")
-                print(" add_cat, remove_cat, list_cat")
+                print(" add_name  \t\t-->Adds name to NameDB\n remove_name  \t-->Removes name from NameDB\n list_name  "
+                      "\t-->Lists names from NameDB")
+                print(" list_task  \t-->including:  Delete Task - 'D'\n\t\t\t\t\t\t\t   Sort Column by Task, Date, "
+                      "Name and Category - 'S'")
 
             if user == 2:
                 print("Vip_user Partial Rights:")
                 print(" list_name")
-                print(" add_task ;including: "
-                      "Add Task - A, Remove Task - D, Sort Column by category, date, name and task - S")
+                print(" add_task -->including: Add Task, Date, Name and Category - 'A'\n\t\t\t\t\t\tDelete Task - "
+                      "'D'\n\t\t\t\t\t\tSort Column by Task, Date, Name and Category - 'S'")
 
             if user == 3:
                 print(who, "Limited Rights:")
-                print(" list_task, done_task")
+                print(" list_task  -->including:   Done Task - 'D'\n\t\t\t\t\t\t\tSort Column by Task, Date, "
+                      "Name and Category - 'S'")
 
             print("Additional 'exit' to sign out")
             print("Additional 'end' to end session")
@@ -122,13 +125,8 @@ if __name__ == '__main__':
 
             # User 3
             if command == "list_task":
-                if user == 3:
+                if user == 3 or user == 1:
                     list_task()
                 else:
                     print("No admin rights")
 
-            # if command == "done_task":
-            #     if user == 3:
-            #         done_task()
-            #     else:
-            #         print("No admin rights")
